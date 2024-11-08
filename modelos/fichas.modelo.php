@@ -45,7 +45,7 @@ class ModeloFichas
 	{
 
 
-		$stmt = Conexion::conectar()->prepare("select f.idficha, f.inicio, f.fin, c.nombres, c.apellidos, s.nombre from ficha f, cliente c, usuarios t, servicio s
+		$stmt = Conexion::conectar()->prepare("select f.idficha, f.inicio, f.fin, f.estado, c.nombres, c.apellidos, s.nombre from ficha f, cliente c, usuarios t, servicio s
 where f.idtrabajador=t.id and f.idcliente=c.idcliente and f.idservicio= s.idservicio and t.id=$valor");
 
 
@@ -216,6 +216,18 @@ where f.idtrabajador=t.id and f.idcliente=c.idcliente and f.idservicio= s.idserv
 
 		$stmt = null;
 
+	}
+
+	public static function inactivar($idFicha) {
+		$stmt = Conexion::conectar()->prepare("UPDATE ficha SET estado = 0 WHERE idficha = :idficha");
+		$stmt->bindParam(":idficha", $idFicha, PDO::PARAM_INT);
+		if ($stmt->execute()) {
+			return "ok";
+		} else {
+			$error = $stmt->errorInfo();
+			return "error";
+		}
+		$stmt->closeCursor();
 	}
 
 	public static function mdlCitasPorServicio($fechaInicio, $fechaFin)

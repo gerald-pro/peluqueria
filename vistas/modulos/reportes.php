@@ -19,7 +19,7 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/pagosPorRangoFechas.php"
+                        <form action="/extensiones/TCPDF-main/pdf/pagosPorRangoFechas.php"
                             target="_blank">
 
                             <div class="x_title">
@@ -54,33 +54,33 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/pagosPorCliente.php"
+                        <form action="/extensiones/TCPDF-main/pdf/pagosPorCliente.php"
                             target="_blank">
-                            
+
                             <div class="x_title">
                                 <button type="submit" class="btn btn-info pull-right"><i class="fa fa-print">GENERAR
                                         REPORTES
                                     </i></button>
                                 <div class="clearfix"></div>
-                                
+
                             </div>
 
                             <div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text"><i class="fa fa-group"></i></span>
-    </div>
-    <select class="form-control select2" name="idCliente" required>
-        <option value="">SELECCIONE CLIENTE</option>
-        <?php
-        $item = null;
-        $valor = null;
-        $cliente = ControladorClientes::ctrMostrarCliente($item, $valor);
-        foreach ($cliente as $key => $value) {
-            echo '<option value="' . $value["idcliente"] . '">' . $value["documento"] . ' - ' . $value["nombres"] . '</option>';
-        }
-        ?>
-    </select>
-</div>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-group"></i></span>
+                                </div>
+                                <select class="form-control select2" name="idCliente" required>
+                                    <option value="">SELECCIONE CLIENTE</option>
+                                    <?php
+                                    $item = null;
+                                    $valor = null;
+                                    $cliente = ControladorClientes::ctrMostrarCliente($item, $valor);
+                                    foreach ($cliente as $key => $value) {
+                                        echo '<option value="' . $value["idcliente"] . '">' . $value["documento"] . ' - ' . $value["nombres"] . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/totalPagosMes.php" target="_blank">
+                        <form action="/extensiones/TCPDF-main/pdf/totalPagosMes.php" target="_blank">
 
                             <div class="x_title">
                                 <button type="submit" class="btn btn-info pull-right"><i class="fa fa-print">GENERAR
@@ -120,7 +120,7 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/historialCitasCliente.php"
+                        <form action="/extensiones/TCPDF-main/pdf/historialCitasCliente.php"
                             target="_blank">
 
                             <div class="x_title">
@@ -134,7 +134,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-group"></i></span>
                                 </div>
-                                <select class="form-control" name="idCliente" required>
+                                <select class="form-control select2" name="idCliente" required>
                                     <option value="">SELECCIONE CLIENTE</option>
                                     <?php
 
@@ -146,7 +146,6 @@
                                     foreach ($cliente as $key => $value) {
 
                                         echo '<option value="' . $value["idcliente"] . '">' . $value["documento"] . ' - ' . $value["nombres"] . '</option>';
-
                                     }
 
                                     ?>
@@ -168,7 +167,7 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/serviciosMasSolicitados.php"
+                        <form action="/extensiones/TCPDF-main/pdf/serviciosMasSolicitados.php"
                             target="_blank">
 
                             <div class="x_title">
@@ -192,7 +191,7 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/ingresoTotalPorServicio.php"
+                        <form action="/extensiones/TCPDF-main/pdf/ingresoTotalPorServicio.php"
                             target="_blank">
 
                             <div class="x_title">
@@ -217,7 +216,7 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/serviciosUtilizadosCliente.php"
+                        <form action="/extensiones/TCPDF-main/pdf/serviciosUtilizadosCliente.php"
                             target="_blank">
 
                             <div class="x_title">
@@ -241,7 +240,7 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/totalCitasPorServicio.php"
+                        <form action="/extensiones/TCPDF-main/pdf/totalCitasPorServicio.php"
                             target="_blank">
 
                             <div class="x_title">
@@ -275,7 +274,7 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/citasPorTrabajador.php"
+                        <form action="/extensiones/TCPDF-main/pdf/citasPorTrabajador.php"
                             target="_blank">
 
                             <div class="x_title">
@@ -294,7 +293,7 @@
                                 <input type="date" class="form-control" name="fechaFin" required>
                             </div>
                             <div class="col-md-6 col-sm-6 form-group row">
-                                <select class="form-control" name="idTrabajador" required>
+                                <select class="form-control select2" name="idTrabajador" required>
                                     <option value="">SELECCIONE TRABAJADOR</option>
                                     <?php
 
@@ -306,7 +305,6 @@
                                     foreach ($cliente as $key => $value) {
 
                                         echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
-
                                     }
 
                                     ?>
@@ -327,7 +325,7 @@
 
                     </div>
                     <div class="x_content">
-                        <form action="/sistema_peluqueria/extensiones/TCPDF-main/pdf/totalCitasPorServicio.php"
+                        <form action="/extensiones/TCPDF-main/pdf/totalCitasPorServicio.php"
                             target="_blank">
 
                             <div class="x_title">
