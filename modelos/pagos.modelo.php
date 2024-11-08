@@ -21,7 +21,6 @@ class ModeloPagos
 			$stmt->execute();
 
 			return $stmt->fetch();
-
 		} else {
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idpagoservicio  ASC");
@@ -29,13 +28,11 @@ class ModeloPagos
 			$stmt->execute();
 
 			return $stmt->fetchAll();
-
 		}
 
 		$stmt->close();
 
 		$stmt = null;
-
 	}
 
 	/*=============================================
@@ -54,7 +51,6 @@ class ModeloPagos
 		$stmt->close();
 
 		$stmt = null;
-
 	}
 
 	/*=============================================
@@ -75,7 +71,6 @@ class ModeloPagos
 		$stmt->close();
 
 		$stmt = null;
-
 	}
 
 	/*=============================================
@@ -95,7 +90,6 @@ class ModeloPagos
 		$stmt->close();
 
 		$stmt = null;
-
 	}
 
 	static public function mdlRangoFechasPagos($tabla, $fechaInicial, $fechaFinal)
@@ -108,8 +102,6 @@ class ModeloPagos
 			$stmt->execute();
 
 			return $stmt->fetchAll();
-
-
 		} else if ($fechaInicial == $fechaFinal) {
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha_pago like '%$fechaFinal%'");
@@ -119,7 +111,6 @@ class ModeloPagos
 			$stmt->execute();
 
 			return $stmt->fetchAll();
-
 		} else {
 
 			$fechaActual = new DateTime();
@@ -133,20 +124,16 @@ class ModeloPagos
 			if ($fechaFinalMasUno == $fechaActualMasUno) {
 
 				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha_pago BETWEEN '$fechaInicial' AND '$fechaFinalMasUno'");
-
 			} else {
 
 
 				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha_pago BETWEEN '$fechaInicial' AND '$fechaFinal'");
-
 			}
 
 			$stmt->execute();
 
 			return $stmt->fetchAll();
-
 		}
-
 	}
 
 	/*=============================================
@@ -169,16 +156,13 @@ class ModeloPagos
 		if ($stmt->execute()) {
 
 			return "ok";
-
 		} else {
-
+			$error = $stmt->errorInfo();
 			return "error";
-
 		}
 
 		$stmt->close();
 		$stmt = null;
-
 	}
 
 	static public function mdlIngresarDetallePago($tabla, $datos)
@@ -195,16 +179,13 @@ class ModeloPagos
 		if ($stmt->execute()) {
 
 			return "ok";
-
 		} else {
 
 			return "error";
-
 		}
 
 		$stmt->close();
 		$stmt = null;
-
 	}
 
 	/*=============================================
@@ -221,17 +202,14 @@ class ModeloPagos
 		if ($stmt->execute()) {
 
 			return "ok";
-
 		} else {
 
 			return "error";
-
 		}
 
 		$stmt->close();
 
 		$stmt = null;
-
 	}
 
 	static public function mdlEliminarDetallePago($tabla, $datos)
@@ -244,17 +222,14 @@ class ModeloPagos
 		if ($stmt->execute()) {
 
 			return "ok";
-
 		} else {
 
 			return "error";
-
 		}
 
 		$stmt->close();
 
 		$stmt = null;
-
 	}
 
 	// Método para obtener ingresos por periodo (día, mes, año)
@@ -392,7 +367,4 @@ class ModeloPagos
 		$stmt->close();
 		$stmt = null;
 	}
-
-
-
 }
